@@ -1,0 +1,63 @@
+ZeeMouse
+
+Written by Larry Bank
+Linux version started 3/7/2016
+
+The name is a reference to the original version from several years ago
+which I wrote to communicate with the ZeeMote bluetooth game controller.
+The device used a proprietary protocol on top of RFCOMM
+instead of implementing HID as a "normal" joystick would. I soon added
+support for several other "undocumented" bluetooth game controllers which
+did the same thing. A while later, Power-A released their MOGA controller.
+They tried to be sneaky by creating a protocol which required special bytes
+to be transmitted to the device before it would send any information. The
+normal protocols for bluetooth game controllers is to constantly send info
+when a button or stick position changes. Power-A tried to tightly control
+what software was authorized to talk to their game controllers. It obviously
+didn't work as well as they had planned because their follow-on products
+added support for the standard HID protocol. ZeeMouse supports the following
+devices: ZeeMote, BGP100, iControlPad, SteelSeries:Free, Moga, Moga2, Moga Pro,
+Moga Pro 2
+
+Building:
+---------
+The GTK3 and Bluetooth libraries need to be installed to build ZeeMouse.
+If you don't have them installed, use the following commands:
+sudo apt-get install libgtk-3-dev
+sudo apt-get install libbluetooth-dev
+
+When everything is installed, simply run 'make' in the git repo directory.
+The executable produced is simply called 'zm'. You can run it from the command
+line or create a desktop icon for it.
+
+!!!!!!!!!!!
+*** NOTE *** before running ZeeMouse for the first time, you must run
+'make install' to set up the GTK settings information in your system.
+!!!!!!!!!!!
+
+Possible preparation needed for RFCOMM to work properly:
+sudo cp /lib/systemd/system/bluetooth.service /etc/systemd/system/
+sudo vi /etc/systemd/system/bluetooth.service
+add -C at the end of ExecStart= to start the bluetooth daemon in compatibility
+mode. Add a new 'ExecStartPost=' immediately after that line, to add the SP
+profile. The two lines should look like this:
+ExecStart=/usr/lib/bluetooth/bluetoothd -C
+ExecStartPost=/usr/bin/sdptool add SP
+
+save and reboot.
+
+Running:
+--------
+When you run ZeeMouse, a GTK window will appear with 3 buttons. Power up a
+supported bluetooth device and press the 'Scan' button. Any recognized devices
+will be added to the device list. The device list is saved to the system
+settings, so it isn't necessary to re-scan your devices each time you run
+ZeeMouse. The device name, address and mode are displayed in the list. To
+change the mode of a device, select it in the list and press the 'Mode' button
+on the toolbar. This will cycle through the three available modes.
+
+When your device is set up the way you want, select its name in the list and
+press the 'Connect' button. Once connected, the button will change into a
+'Disconnect' button. While connected, the bluetooth device will move the
+mouse pointer and/or generate keycodes for button presses and joystick
+position changes.

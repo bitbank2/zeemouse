@@ -1,0 +1,101 @@
+<schemalist>
+  <schema id="com.tdfsoftware.zeemouse" path="/com/tdfsoftware/zeemouse/" gettext-domain="test">
+   <key name="devicecount" type="i">
+    <default>0</default>
+    <description>
+       The number of devices the user has defined
+    </description>
+   </key>
+   <key name="deviceaddr0" type="s">
+   <default>""</default>
+   <description>
+      The BT address of device 0
+   </description>
+   </key>
+   <key name="devicename0" type="s">
+   <default>""</default>
+   <description>
+      The BT name of device 0
+   </description>
+   </key>
+   <key name="devicemode0" type="i">
+   <default>0</default>
+   <description>
+      mouse/joystick/both mode
+   </description>
+   </key>
+   <key name="deviceaddr1" type="s">
+   <default>""</default>
+   <description>
+      The BT address of device 1
+   </description>
+   </key>
+   <key name="devicename1" type="s">
+   <default>""</default>
+   <description>
+      The BT name of device 1
+   </description>
+   </key>
+   <key name="devicemode1" type="i">
+   <default>0</default>
+   <description>
+      mouse/joystick/both mode
+   </description>
+   </key>
+   <key name="deviceaddr2" type="s">
+   <default>""</default>
+   <description>
+      The BT address of device 2
+   </description>
+   </key>
+   <key name="devicename2" type="s">
+   <default>""</default>
+   <description>
+      The BT name of device 2
+   </description>
+   </key>
+   <key name="devicemode2" type="i">
+   <default>0</default>
+   <description>
+      mouse/joystick/both mode
+   </description>
+   </key>
+   <key name="deviceaddr3" type="s">
+   <default>""</default>
+   <description>
+      The BT address of device 3
+   </description>
+   </key>
+   <key name="devicename3" type="s">
+   <default>""</default>
+   <description>
+      The BT name of device 3
+   </description>
+   </key>
+   <key name="devicemode3" type="i">
+   <default>0</default>
+   <description>
+      mouse/joystick/both mode
+   </description>
+   </key>
+   <key name="deviceaddr4" type="s">
+   <default>""</default>
+   <description>
+      The BT address of device 4
+   </description>
+   </key>
+   <key name="devicename4" type="s">
+   <default>""</default>
+   <description>
+      The BT name of device 4
+   </description>
+   </key>
+   <key name="devicemode4" type="i">
+   <default>0</default>
+   <description>
+      mouse/joystick/both mode
+   </description>
+   </key>
+
+</schema>
+</schemalist>
